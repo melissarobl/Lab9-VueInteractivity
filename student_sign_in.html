@@ -55,14 +55,16 @@
 
                 <tbody>
 
-                <tr v-for="student in studentList">  <!-- loop in vue to get all the students in the list-->
+                <tr v-for="student in studentList" v-bind:class="{ present: student.present, absent: !student.present}">  <!-- loop in vue to get all the students in the list-->
+                    <!-- v-bind: class to show HTML attribute you want to change. Name of class (in CSS) you want to change is 'present' or 'absent'-->
                     <td>{{  student.name  }}</td>
                     <td>{{  student.starID  }}</td>
+                    <!-- checkbox for present/absent only one of these is rendered in browser code, but Vue has both-->
                     <td>
-                        <input type="checkbox" v-model="student.present">
-                        <span v-if="student.present">Here!</span>
-                        <span v-else>Not present</span>
-                    </td> <!-- checkbox for present/absent-->
+                        <input type="checkbox" v-model="student.present" v-on:change="arrivedOrLeft(student)"> <!-- value set on whether student is present-->
+                        <span v-if="student.present" class="mx-3">Here!</span>
+                        <span v-else class="mx-3">Not present</span>  <!-- mx-3 means margin to left and right -->
+                    </td>
                     <!-- <td{{  }}></td>   delete button-->
 
                 </tr>
@@ -79,8 +81,15 @@
 
     <div id="welcome-or-goodbye-message" class="m-2">
 
-        <!-- TODO show a message when student arrives or leaves  -->
-
+        <!-- show a message when student arrives or leaves  -->
+            <div v-if="mostRecentStudent.name">
+                <div v-if="mostRecentStudent.present" class="alert alert-success">
+                    Welcome, {{ mostRecentStudent.name }}!
+                </div>
+                <div v-else class="alert alert-warning">
+                    Goodbye {{ mostRecentStudent.name}}, see you later.
+                </div>
+            </div>
     </div>
 
 </div>
@@ -104,6 +113,7 @@
 
             const formErrors = ref([])
 
+            const mostRecentStudent = ref({})
 
             //create functions
 
@@ -135,16 +145,23 @@
 
             //create computed properties
 
+            function arrivedOrLeft(student) {
+                mostRecentStudent.value = student
+            }
+
             return {
                 //return reactive data
                 studentList,
                 newStudentName,
                 newStarID,
                 formErrors,
+                mostRecentStudent,
 
 
                 //return functions
-                addStudent
+                addStudent,
+                arrivedOrLeft,
+
 
                 //return computed properties
             }
