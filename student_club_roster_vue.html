@@ -39,7 +39,7 @@
 
     <label for="student-id">Student ID</label>
     <!-- Use v-model to connect this input to a ref called newStudentId -->
-    <input v-model.trim="newStudentID"  id="student-id" name="student-id">
+    <input v-model.trim="newStudentId"  id="student-id" name="student-id">
 
     <br>
 
@@ -128,7 +128,6 @@
 
             const addNewStudent = () => {
 
-
                 errors.value = []  // Set the errors value to an empty array
 
                 // Read the value from newStudentName. If it is empty, add an error message to the end of the errors ref.
@@ -147,7 +146,7 @@
                 }
 
                 //  And, check that newStudentGPA is between 0 and 4. If not, add an error message to the end of the errors ref.
-                if(newStudentGPA < 0 || newstudentGPA > 4) {
+                if(newStudentGpa < 0 || newStudentGpa > 4) {
                     errors.value.push('Please enter a GPA between 0 and 4')
                 }
 
@@ -170,7 +169,7 @@
                     newStudentName.value = ''
                     newStudentId.value = ''
                     newStudentGpa.value = ''
-                    
+
                 }
             }
 
@@ -194,7 +193,7 @@
                 //return reactive data
                 studentList,
                 newStudentName,
-                newStudentID,
+                newStudentId,
                 newStudentGpa,
 
 
