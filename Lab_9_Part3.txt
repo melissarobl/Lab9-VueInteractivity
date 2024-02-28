@@ -7,3 +7,9 @@ What differences do you see?
 Which one do you prefer? Why?
 
 Create a new text file with your response. Write about 2 paragraphs.
+
+notes:
+- Vue is much less forgiving- I had an extra space and the code wouldn't display on browser at all.
+- Vue has more efficient options for coding what you want.
+- Vue seems more confusing to use. I like regular JavaScript better at this point. I think Vue is a shortcut/shorthand
+and it can't be used as easily or efficiently by someone who doesn't understand JS well enough.
