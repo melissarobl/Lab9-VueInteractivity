@@ -1,15 +1,20 @@
 Part 3, How is Vue and Vanilla JavaScript different? 2 points
 
-Compare your solution for part 2 to the earlier Student Club Roster.
+Compare your solution for part 2 to the earlier Student Club Roster. Create a new text file with your response. Write about 2 paragraphs.
 
 What differences do you see?
+In the head, the Vue script tag as been added to the HTML. That is the only difference there. The content of the HTML before the script is
+largely the same, but with the addition of the 'v-model' to add the two-way binding. The ul has a bit more code in the Vue version, but only
+two more lines to include the code for what happens when the button is clicked. The Vue version also has a 'div' to group the div#app elements.
+The script has the most differences. The Vue app has to be set up in the Vue version. The Errors section is largely the same in each. The regular
+JS version has a lot more variables and lines of code than the Vue version's counterpart script. Vue is more concise and regular JS shows more work.
 
 Which one do you prefer? Why?
 
-Create a new text file with your response. Write about 2 paragraphs.
+I prefer the regular JavaScript. It is clearer to me and easier to read and follow because the code is written more completely. I also think Vue is
+much less forgiving. When I made small mistakes (like an extra space), the page did not render at all. Because I am learning, the way regular JS
+responds to errors is better. (Though I know that using the browser's console can be helpful to finding the reason for any errors that arise in either Vue or
+regular JS.) I think Vue is probably more helpful to someone who has more experience in JS and knows what it can do and therefore can use the
+shorthand notation more efficiently and effortlessly.
 
-notes:
-- Vue is much less forgiving- I had an extra space and the code wouldn't display on browser at all.
-- Vue has more efficient options for coding what you want.
-- Vue seems more confusing to use. I like regular JavaScript better at this point. I think Vue is a shortcut/shorthand
-and it can't be used as easily or efficiently by someone who doesn't understand JS well enough.
+
