@@ -25,7 +25,7 @@
 </head>
 <body>
 
-<div id="app">
+<div id="app"> <!-- this contains the HTML that Vue manages -->
     <h1>Student Club Roster</h1>
 
     <h2>Add Students</h2>
@@ -96,10 +96,12 @@
     */
 
 
-    const { createApp, ref, computed } = Vue
+    const { createApp, ref, computed } = Vue  //make Vue concepts available to this file
 
-    createApp({
-        setup() {
+    createApp({  //creates a Vue app that manages the data on the page AND the HTML
+        // it will manage the data for the page, and all the HTML in the div # app
+        // there are a lot of {} and ()- be careful!
+        setup() {  //describes the data and operations on that data and how it affects what we see on the page
 
             // Create a new ref studentList. This will be an array. The array can be empty, or you can create an example student or students if you like.
             const studentList = ref([
@@ -107,7 +109,7 @@
                 {name: 'Big Bird', id: 'abc123', gpa: 4.0, selected: false}
             ])
 
-            // Create a new ref newStudentName, initially an empty string
+            // Create a new ref newStudentName, initially an empty string. Also, reactive container for a string.
             const newStudentName = ref('')
 
             // Create a new ref newStudentId, initially an empty string
@@ -146,7 +148,7 @@
                 }
 
                 //  And, check that newStudentGPA is between 0 and 4. If not, add an error message to the end of the errors ref.
-                if(newStudentGpa < 0 || newStudentGpa > 4) {
+                if(newStudentGpa.value < 0 || newStudentGpa.value > 4) {
                     errors.value.push('Please enter a GPA between 0 and 4')
                 }
 
@@ -191,7 +193,7 @@
 
 
             return {
-                // List all the refs and functions and computed properties
+                // List all the refs and functions and computed properties (list of things that Vue uses on the page)
 
                 //return reactive data
                 studentList,
@@ -214,8 +216,9 @@
 
 
             }
-        }
-    }).mount('#app')
+        } //end of setup function
+
+    }).mount('#app')  //connect to the HTML in the div #app - all the HTML for this page
 
 
 </script>
